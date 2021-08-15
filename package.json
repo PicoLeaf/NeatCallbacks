@@ -1,0 +1,8 @@
+{
+  "name": "neat.js",
+  "version": "1.0.0",
+  "description": "A nifty little package that prevents callback hell (hopefully)",
+  "main": "index.js",
+  "author": "PicoLeaf",
+  "license": "MIT"
+}
