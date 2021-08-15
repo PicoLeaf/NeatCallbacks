@@ -101,3 +101,7 @@ const timer = toAsyncFunction(function* (Seconds = 0) {
 
 timer(3);
 ```
+
+### License
+
+MIT

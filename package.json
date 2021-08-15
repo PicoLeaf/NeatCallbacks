@@ -1,5 +1,5 @@
 {
-  "name": "neat.js",
+  "name": "neat-callbacks",
   "version": "1.0.0",
   "description": "A nifty little package that prevents callback hell (hopefully)",
   "main": "index.js",

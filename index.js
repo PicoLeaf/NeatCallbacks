@@ -1,3 +1,9 @@
+/**
+ * 
+ * @param {*} func 
+ * @returns 
+ * @author @PicoLeaf
+ */
 function toAsyncFunction(func) {
     var _this = this;
     if (func) {
