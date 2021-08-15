@@ -1,3 +1,4 @@
+// TODO es module
 function toAsyncFunction(func) {
     var _this = this;
     if (func) {
@@ -22,8 +23,3 @@ function toAsyncFunction(func) {
 Object.getPrototypeOf(function*(){}).toAsyncFunction = toAsyncFunction;
 
 const Timeout = (ms = 0) =>  new Promise(resolve => setTimeout(resolve, ms));
-
-exports = {
-    Timeout,
-    toAsyncFunction
-}
