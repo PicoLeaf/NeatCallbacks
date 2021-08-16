@@ -4,19 +4,28 @@ function toAsyncFunction(func) {
     if (func) {
         _this = func;
     }
-
-    function handlePromises(iterator, value) {
-        var next;
-        if (value) next = iterator.next(value);
-        else next = iterator.next();
-
-        if (!next.done && next.value instanceof Promise) {
-            next.value
-                .then(data => handlePromises(iterator, data))
+    
+    function handlePromises(iterator) {
+        var next = iterator.next();
+        var lastDat;
+        
+        while (!next.done) {
+            if (next.value instanceof Promise) {
+                next.value
+                .then(data => {
+                    lastDat = data;
+                    next = iterator.next(lastDat);
+                })
                 .catch(iterator.throw);
+            }else {
+                next = iterator.next(lastDat);
+                lastDat = next.value;
+            }
         }
+        
+        return lastDat;
     }
-
+    
     return (...args) => handlePromises(_this(...args));
 }
 
