@@ -1,8 +1,8 @@
-### Neat.js
+### neat callbacks
 
 Before:
 ```js
-function* before() {
+function before() {
     console.log("A,");
 
     setTimeout(() => {
@@ -17,7 +17,7 @@ before();
 // A, C. B,
 ```
 
-With Neat.js:
+With neat-callbacks:
 
 ```js
 const after = (function* () {
@@ -53,7 +53,7 @@ request("./flower.png").then(data => {
 });
 
 
-// With neat it is much cleaner; 
+// With neat-callbacks it is much cleaner; 
 
 const request = (function* (url) {
     return yield fetch(url);
@@ -82,13 +82,33 @@ const request = toAsyncFunction(function* (url, method = "get") {
 
 ## Installing
 
-`npm i neat.js`
+`npm i neat-callbacks`
+
+then, import it with require,
+
+```js
+const { Timeout, toAsyncFunction } = require("neat-callbacks");
+```
+
+Or with
+
+```html
+<script src="./node_modules/neat-callbacks/browser.js"></script>
+```
 
 ## Usage
 
+A function can be written by creating a [generator function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) with the keyword: `function*`
+
+then, you can transform it into a "async" function with `GeneratorFunction.prototype.toAsyncFunction`
+
+Or directly by calling `toAsyncFunction` with the function passed as the first argument.
+
+Arguments and return values are fully supported.
+
 As you might have noticed earlier, I have used a helper function called `Timeout`.
 
-For now there is only one helper function, which pause the function for a set amount of miliseconds.
+There is only one helper function, which pause the function for a set amount of milliseconds.
 
 #### Exemple:
 

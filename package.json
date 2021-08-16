@@ -1,6 +1,6 @@
 {
   "name": "neat-callbacks",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "description": "A nifty little package that prevents callback hell (hopefully)",
   "main": "index.js",
   "author": "PicoLeaf",
